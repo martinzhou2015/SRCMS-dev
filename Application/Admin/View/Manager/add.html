@@ -1,0 +1,38 @@
+<include file="Public/header" title="添加后台用户 - 企业安全应急响应与缺陷管理中心" users_status="open" manager_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('manager/index')}">用户列表</a>
+</li>
+<li>
+<a href="javascript:;">添加后台用户</a>
+</li>
+</ol>
+</div>
+<form action="{:U('manager/add')}" method="post">
+	<div class="form-group">
+		<label>用户名</label>
+		<input class="form-control" type="text" name="username" placeholder="后台用户名">
+	</div>
+	<div class="form-group">
+		<label>邮箱</label>
+		<input class="form-control" type="text" name="email" placeholder="邮箱">
+	</div>
+	<div class="form-group">
+		<label>密码</label>
+		<input class="form-control" type="password" name="password" placeholder="密码">
+	</div>
+	<div class="form-group">
+		<label>确认密码</label>
+		<input class="form-control" type="password" name="repassword" placeholder="重复密码">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-success" type="submit" >添加</button>
+	</div>
+
+
+</form>
+</div>
+
+<include file="Public/footer" />

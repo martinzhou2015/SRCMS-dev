@@ -1,0 +1,99 @@
+<include file="Public/header" title="更新个人信息 | 企业安全应急响应与缺陷管理中心" info="active"/>
+<div class="wrapper wrapper-content">
+<div class="row">
+        <div class="col-lg-12">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>请您准确填写您的个人信息，以便我们能够准确及时为您寄送礼品！</p>
+				<div class="clearfix"></div>
+            </div>
+        </div>
+</div>
+
+<form method="post" action="{:U('info/index')}">
+
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="pull-left"><h5>基本信息</h5></div>
+            <div class="ibox-tools">
+                  <a class="collapse-link">
+                     <i class="fa fa-chevron-up"></i>
+                  </a>
+            </div>
+    </div>
+<div class="ibox-content" style="">
+<foreach name="info" item="v">
+<div class="row">
+<div class="col-sm-5">
+	   <div class="form-group">
+        <label>姓名：</label>
+        <input type="text" name="realname"  class="form-control" value="{$v.realname}">
+	   </div>
+	   <div class="form-group">
+        <label>QQ号：</label>
+        <input type="text" name="qqnumber"  class="form-control" value="{$v.qqnumber}">
+	   </div>
+</div>
+<div class="col-sm-5">
+	   <div class="form-group">
+        <label>电话：</label>
+        <input type="text" name="tel"  class="form-control" value="{$v.tel}">
+	  </div>
+	  <div class="form-group">
+        <label>邮编：</label>
+        <input type="text" name="zipcode" class="form-control" value="{$v.zipcode}">
+	   </div>
+</div>
+<div class="col-sm-10">
+	  <div class="form-group">
+        <label>个人网站：</label>
+        <input type="text" name="website"  class="form-control" value="{$v.website}">
+	  </div>
+	  <div class="form-group">
+        <label>研究团队：</label>
+        <input type="text" name="team"  class="form-control" value="{$v.team}">
+	  </div>
+	  <div class="form-group">
+        <label>住址：</label>
+        <input type="text" name="address" class="form-control" value="{$v.address}">
+	   </div>
+	  <div class="form-group">
+        <label>个人简介：</label>
+        <textarea type="text" name="description"  class="form-control" value="{$v.description}"></textarea>
+	  </div>
+</div>
+</div>
+      <button type="submit" class="btn btn-success">提交</button>
+   </div>
+</div>
+
+	<div class="ibox">
+	<div class="ibox-title">
+	<div class="pull-left"><h5>财务信息</h5></div>
+         <div class="ibox-tools">
+                      <a class="collapse-link">
+                         <i class="fa fa-chevron-up"></i>
+                      </a>
+         </div>
+	</div>
+	<div class="ibox-content" style="">
+	   <div class="form-group">
+        <label>身份证号：</label>
+        <input type="text" name="idcode"  class="form-control" value="{$v.idcode}">
+	   </div>
+	   <div class="form-group">
+			<label>银行卡号：</label>
+			<input type="text" name="bankcode"  class="form-control" value="{$v.bankcode}">
+	   </div>
+	   <div class="form-group">
+        <label>支付宝账号：</label>
+        <input type="text" name="alipay"  class="form-control" value="{$v.alipay}">
+	   </div>
+	    <input type="hidden" name="token"  class="form-control" value="{:session('token')}">
+		<button type="submit" class="btn btn-success">提交</button>
+	 </div>
+     </div>
+</foreach>
+     </form>
+</div>
+<include file="Public/footer" />

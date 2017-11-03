@@ -1,0 +1,44 @@
+<include file="Public/header" title="积分记录 | 企业安全应急响应与缺陷管理中心" gift="active"/>
+<div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>积分记录 / Consume Record</h5>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>   
+                                            <th>变动时间</th>
+                                            <th>操作内容</th>
+                                            <th>变动详情</th>
+                                            <th>操作人</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <foreach name="record" item="v">
+                                            <tr>
+                                                <td data-title="变动时间">{$v.time|date="Y/m/d",###}</td>
+                                                <td data-title="操作内容">{$v.name}</td>
+                                                <td data-title="变动详情">{$v.content}</td>
+                                                <td data-title="操作人">{$v.operator}</td> 
+                                            </tr>
+                                        </foreach>
+                                        </tbody>
+                                    </table>
+                               <div class="col-sm-12" style="text-align:center;">
+                                    {$page}
+                              </div>	
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+<include file="Public/footer" />

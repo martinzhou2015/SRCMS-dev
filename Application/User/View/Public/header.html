@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>[title]</title>
+
+    <link href="__PUBLIC__/User/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/User/font-awesome.css" rel="stylesheet">
+    <link href="__PUBLIC__/User/animate.css" rel="stylesheet">
+    <link href="__PUBLIC__/User/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/User/global.css" rel="stylesheet">
+
+</head>
+
+<body class="top-navigation  pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg" style="min-height: 613px;">
+        <div class="row border-bottom white-bg">
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                    <i class="fa fa-reorder"></i>
+                </button>
+                <a href="#" class="navbar-brand">SRCMS</a>
+            </div>
+            <div class="navbar-collapse collapse" id="navbar">
+                <ul class="nav navbar-nav">
+                    <!--<li class="active">
+                        <a aria-expanded="false" role="button" href="http://webapplayers.com/inspinia_admin-v2.6/layouts.html"> Back to main Layout page</a>
+                    </li>-->
+                     <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="./index.php" class="dropdown-toggle"> 首页 </a>
+                    </li>
+                    <li class="dropdown [index]">
+                        <a aria-expanded="false" role="button" href="{:U('index/index')}" class="dropdown-toggle"> 个人中心 </a>
+                    </li>
+                    <li class="dropdown [report]">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 漏洞报告 <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{:U('post/add')}">提交报告</a></li>
+                            <li><a href="{:U('post/index')}">全部报告</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown [gift]">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 礼品中心 <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{:U('gift/index')}">礼品兑换</a></li>
+                            <li><a href="{:U('gift/order')}">我的订单</a></li>
+                            <li><a href="{:U('gift/record')}">积分记录</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown [info]">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> 账号中心 <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{:U('info/index')}">个人信息</a></li>
+                            <li><a href="{:U('change/index')}">修改密码</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                        <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-1x"></i>{:session('username')}</a>
+                        <ul role="menu" class="dropdown-menu">
+                            <li><a href="{:U('login/logout')}">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        </div>
+ 

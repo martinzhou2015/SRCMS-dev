@@ -1,0 +1,60 @@
+<include file="Public/header" title="订单详情 - 企业安全应急响应与缺陷管理中心" links_status="open" orders_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-users"></i> <a href="{:U('order/index')}">订单列表</a>
+</li>
+<li>
+<a href="javascript:;">编辑订单</a>
+</li>
+</ol>
+</div>
+    <form method="post" action="{:U('order/update')}">
+        <div class="form-group">
+            <label for="aa">礼品名称</label>
+            <input type="text" name="gid" class="form-control" id="aa" value="{$model.gid}" placeholder="输入礼品名称">
+        </div>
+        <div class="form-group">
+            <label for="aa">礼品价格</label>
+            <input type="text" name="price" class="form-control" value="{$model.price}" placeholder="输入礼品价格">
+        </div>
+        <div class="form-group">
+            <label for="bb">真实姓名</label>
+            <input type="text" name="realname" class="form-control" value="{$model.realname}" placeholder="填写真实姓名">
+        </div>
+        <div class="form-group">
+            <label for="cc">住址</label>
+            <input type="text" name="address" class="form-control" value="{$model.address}" placeholder="填写住址" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">联系方式</label>
+            <input type="text" name="tel" class="form-control" value="{$model.tel}" placeholder="填写联系方式" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">邮编</label>
+            <input type="text" name="zipcode" class="form-control" value="{$model.zipcode}" placeholder="填写邮编" value="100">
+        </div>
+		<div class="form-group">
+            <label for="cc">支付宝帐号</label>
+            <input type="text" name="alipay" class="form-control" value="{$model.alipay}" placeholder="填写支付宝账号" value="100">
+        </div>
+		<div class="form-group">
+            <label>订单状态： </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="0" <if condition="$post.day eq 0">checked="checked"</if> > 待处理
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="1" <if condition="$post.day eq 1">checked="checked"</if>> 已发货
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="finish" id="finish" value="2" <if condition="$post.day eq 2">checked="checked"</if>> 已关闭
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="id" value="{$model.id}">
+            <button type="submit" class="btn btn-default">更新</button>
+        </div>
+    </form>
+</div>
+<include file="Public/footer" />

@@ -1,0 +1,93 @@
+<include file="Public/header" title="订单确认 - 企业安全应急响应与缺陷管理中心" gift="active"/>
+<script>
+function numplus(){
+var goodsnum = document.getElementById("redeemgoods");
+var resultnum = parseInt(goodsnum.value) + 1;
+goodsnum.value = resultnum;
+}
+
+function numminus(){
+var goodsnum = document.getElementById("redeemgoods"); 
+var resultnum = parseInt(goodsnum.value) - 1;
+if (resultnum > 0){
+    goodsnum.value = resultnum;
+  }else{
+    alert('商品数量非法！');
+    }
+}
+</script>
+<div class="wrapper wrapper-content">
+<div class="col-lg-13">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <p>请您再次校对您的订单信息和联系方式，以便我们能够准确为您邮寄兑换的礼品。</p>
+				<div class="clearfix"></div>
+            </div>
+        </div>
+<div class="ibox">
+<div class="ibox-content">
+<div class="table-responsive">
+<table class="table cart m-b-0">
+<thead>
+<tr>
+<th>礼品名称</th>
+<th>兑换数量</th>
+<th>消耗金币</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<form method="post" action="{:U('gift/add?gid=')}{$gift.id}">
+<td class="text-capitalize">{$gift.title}</td>
+<td>
+<a onclick="numminus();"> - &nbsp;</a>
+<span><input id="redeemgoods" class="filter" name="num" type="text" value="1" style="width:10%; text-align:center; border:none;"></span>
+<a onclick="numplus();"> + &nbsp;</a>
+</td>
+<td>{$gift.price}</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div class="ibox">
+<div class="ibox-title">
+        <h5>个人信息</h5>
+</div>
+<div class="ibox-content">
+	   <div class="form-group">
+        <label>姓名：</label>
+        <input type="text" name="realname"  class="form-control" value="{$info.realname}">
+	   </div>
+	   <div class="form-group">
+        <label>邮编：</label>
+        <input type="text" name="zipcode" class="form-control" value="{$info.zipcode}">
+	   </div>
+	   <div class="form-group">
+        <label>住址：</label>
+        <input type="text" name="address" class="form-control" value="{$info.address}">
+	   </div>
+	   <div class="form-group">
+        <label>电话：</label>
+        <input type="text" name="tel"  class="form-control" value="{$info.tel}">
+	   </div>
+	   <div class="form-group">
+        <label>支付宝账号：</label>
+        <input type="text" name="alipay"  class="form-control" value="{$info.alipay}">
+	   </div>
+	   <input type="hidden" name="token"  class="form-control" value="{:session('token')}">
+</div>
+</div>
+
+<div class="row">
+<div class="col-xs-12">
+<button type="submit" class="btn btn-primary pull-right" onclick="return del('您确定要兑换吗？兑换操作将不可撤销！');">提交订单</button>
+<a href="{:U('gift/index')}" class="btn btn-default" ui-sref="app.commerce.products">返回</a>
+</div>
+</div>
+</form>
+</div>
+<include file="Public/footer" />

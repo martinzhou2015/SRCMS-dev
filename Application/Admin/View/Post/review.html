@@ -1,0 +1,216 @@
+<include file="Public/header" title="报告审核 - {$post.title|htmlspecialchars_decode|waf}" report_status="open" review_report_color="#6164C1;"/>
+<div class="main-content">
+<div class="page-title">
+<!--<div class="pull-right">
+<button type="button" class="btn btn-info no-print"><i class="icon-printer m-r"></i>导出PDF</button>
+</div>-->
+<ol class="breadcrumb no-bg pl0">
+<li>
+<i class="icon-layers"></i> <a href="{:U('post/index')}">漏洞列表</a>
+</li>
+<li>
+<a href="javascript:;">审核报告</a>
+</li>
+</ol>
+<h4 style="font-family:微软雅黑;">[SRC-{$post.time|date="Y",###}-{$post.id}] {$post.title|htmlspecialchars_decode|waf}</h4>
+</div>
+</div>
+
+<div class="col-sm-12">
+<!--分割线-->
+<div class="card bg-white">
+<div class="card-header bg-default">
+<div class="pull-left">报告详情</div>
+<div class="pull-right"><a href="{:U('post/update?id=')}{$post.id}"><i class="fa fa-pencil" aria-label="编辑报告"></i></a></div>
+</div>
+<div class="card-block">
+<div class="row">
+<div class="col-lg-6">
+		            <p><span><b>报告奖励：</b>{$post.bounty}</span></p>
+		            <p><span><b>报告时间：</b>{$post.time|date="Y-m-d H:i:s",###}</span></p>          
+</div>
+<div class="col-lg-6">
+					<p><span><b>报告状态：</b></span><if condition="$post.type eq 1"><span class="label label-info">审核中</span>
+                    <elseif condition="$post.type eq 2" /><span class="label label-default">已忽略</span>
+                    <elseif condition="$post.type eq 3" /><span class="label label-warning">已确认</span>
+                    <elseif condition="$post.type eq 4" /><span class="label label-success">已修复</span>
+                    </if> </p> 
+					<p><span><b>漏洞危害：</b></span><if condition="$post.rank eq 1"><span class="label label-info">无影响</span>
+                    <elseif condition="$post.rank eq 2" /><span class="label label-default">低危</span>
+                    <elseif condition="$post.rank eq 3" /><span class="label label-warning">中危</span>
+                    <elseif condition="$post.rank eq 4" /><span class="label label-success">高危</span>
+                    </if></p>
+</div>
+<div class="col-lg-12">
+<hr/>
+<p><b>报告内容：</b></p>
+<p>
+{$post.content|htmlspecialchars_decode|waf}
+</p>
+</div>
+</div>
+<code>来源:外部报告</code>
+</div>
+</div>
+<!--分割线-->
+<!--分割线-->
+<div class="card bg-white">
+<div class="card-header bg-default">
+<div class="pull-left">审核报告</div>
+<div class="card-controls">
+<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
+<i class="card-icon-collapse"></i>
+</a>
+</div>
+</div>
+<div class="card-block" style="">
+<form method="post" action="{:U('post/review?id=')}{$post.id}">
+<div class="form-group">
+            <label>修补限期：</label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="1" checked="checked">无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="2">10天
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="3">3天
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="day" id="day" value="4">2天
+            </label>
+        </div>
+<div class="form-group">
+            <label>危害评级：</label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="1" checked="checked">无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="2">低危
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="3">中等
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="4">高危
+            </label>
+        </div>
+<div class="form-group">
+            <label>处理结果：</label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="1" checked="checked">审核中
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="2">已忽略
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="3">已确认
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="4">已修复
+            </label>
+        </div>
+<button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">
+		<i class="icon-cursor mr5"></i>
+		<span>提交</span>
+</button>
+</form>
+</div>
+</div>
+<!--时间线主要内容-->
+<!--报告奖励-->
+<div class='card bg-white'>
+<div class="card-header bg-default">
+<div class="pull-left">报告奖励</div>
+<div class="card-controls">
+<a href="javascript:;" class="card-collapse" data-toggle="card-collapse">
+<i class="card-icon-collapse"></i>
+</a>
+</div>
+</div>
+<div class="card-block" style="">
+<!--评级内容框-->
+<form method="post" action="{:U('post/jifen?uid=')}{$post.user_id}">
+<div class="row">
+<div class="col-sm-5">
+		<div class="form-group">
+        <label>奖励积分：</label>
+			<input  class="form-control" name="jifen" type="text" placeholder="请输入奖励积分...">
+		</div>
+</div>		
+<div class="col-sm-5">
+		<div class="form-group">
+        <label>奖励金币：</label>
+			<input class="form-control" name="jinbi" type="text" placeholder="请输入奖励金币...">
+		</div>
+</div>
+</div>
+		<input type="hidden" name="pid" value="{$post.id}">
+		<input type="hidden" name="token" value="{:session('token')}">
+		<button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">		
+			<i class="icon-cursor mr5"></i>
+		    <span>提交</span>
+		</button>
+	</form>
+<!--评级内容框-->
+</div>
+</div>
+<!--报告奖励-->
+<!--工单评论信息-->
+<div class="card bg-white">
+<div class="card-header bg-default">
+<div class="pull-left">评论</div>
+</div>
+<div class="card-block" style="">
+<foreach name="comment" item="v">
+		<div class="comment">
+		<div class="comment-author">
+			<b><a href="javascript:;">
+				#{$v.user_id}
+				<time datetime="2015-09-01" class="time"> {$v.update_time|date="Y年m月d日",###}</time>
+			</a></b>
+		</div>
+		<p>{$v.content}</p>
+	</div>
+    <hr/>
+</foreach>
+<div class="form-group">
+<form method="post" action="{:U('post/comment')}">
+	<div class="form-group">
+		<textarea class="form-control m-b input-sm" type="text" name="content" placeholder="点击此处输入评论..."></textarea>
+		<input hidden type="text" name="post_id" value="{$post.id}">
+        </div>
+		<button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">
+		<i class="icon-cursor mr5"></i>
+		<span>提交</span>
+</button>
+</form>
+
+
+</div>
+</div>
+</div>
+<!--工单评论信息-->
+
+<!--分割线-->
+</div>
+<!--分割线-->
+
+</div>
+
+<!-- 配置文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__PUBLIC__/ueditor/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var ue = UE.getEditor('post-content',{
+        toolbars: [
+            ['source', 'undo', 'redo','bold', 'italic', 'underline','fontborder', 'strikethrough', '|','simpleupload', 'insertimage','attachment','emotion','link','unlink', '|', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote','searchreplace', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc'],
+            ['inserttable','insertrow', 'insertcol','mergeright', 'mergedown','deleterow', 'deletecol','splittorows','splittocols', 'splittocells','deletecaption','inserttitle', 'mergecells', 'deletetable','insertparagraphbeforetable', 'paragraph','fontsize','fontfamily']
+        ],
+        initialFrameHeight:500,
+        zIndex:100
+    });
+</script>
+<include file="Public/footer" />

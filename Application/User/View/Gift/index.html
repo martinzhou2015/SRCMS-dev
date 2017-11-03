@@ -1,0 +1,72 @@
+<include file="Public/header" title="兑换中心 | 企业安全应急响应与缺陷管理中心" gift="active"/>
+
+<div class="wrapper wrapper-content">
+    <!--概况-->
+    <div class="row">
+          <div class="col-md-4">
+                <div class="widget style1 navy-bg-new">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-bug fa-3x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 消费次数 </span>
+                            <h2 class="font-bold"><a href="{:U('gift/record')}" style="color:white;">{$recordnum}</a></h2>
+                        </div>
+                    </div>
+                </div>
+         </div>
+          <div class="col-md-4">
+                <div class="widget style1 navy-bg-new">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-dollar fa-3x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 我的金币 </span>
+                            <h2 class="font-bold"><a href="{:U('gift/index')}" style="color:white;">{$jinbi['jinbi']}</a></h2>
+                        </div>
+                    </div>
+                </div>
+         </div>
+          <div class="col-md-4">
+                <div class="widget style1 navy-bg-new">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <i class="fa fa-file-text-o fa-3x"></i>
+                        </div>
+                        <div class="col-xs-8 text-right">
+                            <span> 我的订单 </span>
+                            <h2 class="font-bold"><a href="{:U('gift/order')}" style="color:white;">{$giftnum}</a></h2>
+                        </div>
+                    </div>
+                </div>
+         </div>
+    </div>
+    <div class="ibox">
+        <div class="ibox-title">
+            <h5>礼品中心</h5>
+        </div>
+        <div class="ibox-content">
+            <foreach name="gift" item="v">
+            <div class="col-sm-3">
+            <div class="ibox">
+            <div class="ibox-gift">
+            <h4 class="card-title" style="color: black; font-family:微软雅黑;">{$v.title}</h4>
+            <p class="card-text"><img src="{$v.url}" class="card-img-top img-responsive center-block" style="width:150px;height:150px;"/></p>
+            <div class="rating">
+            <span>安全币：{$v.price}</span>
+            <div class="pull-right"><a href="{:U('gift/add?gid=')}{$v.id}"><button class="btn btn-xs btn-success text-align" >兑换</button></a></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </foreach>
+            <div class="col-sm-12">
+                {$page}
+            </div>	
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer" />

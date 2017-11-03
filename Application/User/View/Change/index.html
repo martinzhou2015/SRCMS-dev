@@ -1,0 +1,53 @@
+<include file="Public/header" title="更新个人信息 | 企业安全应急响应与缺陷管理中心" user_status="open" change_color="#6164C1;"/>
+<div class="wrapper wrapper-content">
+<div class="ibox">
+<div class="ibox-title">
+<h5>账户设置</h5>
+</div>
+<div class="ibox-content">
+	<form action="{:U('change/change')}" method="post">
+	<div class="form-group">
+		<label>旧密码</label>
+		<input class="form-control" type="password" name="oldpassword" placeholder="请输入旧密码...">
+	</div>
+	<div class="form-group">
+		<label>密码</label>
+		<input class="form-control" type="password" name="password" placeholder="请输入新密码...">
+	</div>
+	<div class="form-group">
+		<label>确认密码</label>
+		<input class="form-control" type="password" name="repassword" placeholder="请再次输入新密码...">
+	</div>
+	<div class="form-group">
+                    <label> 验证码</label>
+                    <div class="row" >
+                        <div class="col-md-8">
+                            <input type="text"  name="verify" class="form-control" id="exampleInputCode" placeholder="请输入验证码...">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="javascript:void(0)"><img class="verify" class="form-control" src="{:U('reg/verify')}" alt="点击刷新"/></a>
+                        </div>
+                    </div>
+    </div>
+    <div class="form-group">
+		<button class="btn btn-success" type="submit">提交</button>
+	</div>
+    </form>
+   </div>
+</div>
+
+</div>
+
+<script src="__STATIC__/js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $(".verify").click(function(){
+            var src = "{:U('change/verify')}";
+            var random = Math.floor(Math.random()*(1000+1));
+            $(this).attr("src",src+"&random="+random);
+
+        });
+    })
+</script>
+
+<include file="Public/footer" />

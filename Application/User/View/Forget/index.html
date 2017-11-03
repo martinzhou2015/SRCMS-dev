@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class=" js no-touch csstransforms csstransforms3d svg" lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>忘记密码 - 安全应急响应中心</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<script type="text/javascript" async="" src="__PUBLIC__/Admin/ga.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/Admin/app.min.css">
+<style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style></head>
+<body class="page-loaded" style="font-family:微软雅黑;">
+ 
+<div class="pageload" style="display: none;">
+<div class="pageload-inner">
+<div class="sk-rotating-plane"></div>
+</div>
+</div>
+ 
+ 
+<div class="app signup usersession">
+<div class="session-wrapper">
+<div class="page-height-o row-equal align-middle">
+<div class="column">
+<div class="card bg-white no-border">
+<div class="card-block">
+<form role="form" class="form-layout" method="post" action="{:U('forget/find')}">
+<div class="text-center m-b">
+<h4 class="text-uppercase">忘记密码</h4>
+<div class="divider">
+<span>携手共建安全生态</span>
+</div>
+</div>
+<div class="form-inputs">
+<label class="text-uppercase">邮箱地址</label>
+<input type="email" class="form-control input-lg" name="email" placeholder="请输入邮箱地址..." required="">
+<label class="text-uppercase">用户名</label>
+<input type="text" class="form-control input-lg" name="username" placeholder="请输入用户名..." required="">
+</div>
+<div class="form-group">
+                    <label> 验证码</label>
+                    <div class="row" >
+                        <div class="col-md-8 row col-md-offset-0">
+                            <input type="text"  name="verify" class="form-control input-lg" id="exampleInputCode" placeholder="请输入验证码...">
+                        </div>
+                        <div class="col-md-4">
+                            <a href="javascript:void(0)"><img class="verify" src="{:U('forget/verify')}" alt="点击刷新"/></a>
+                        </div>
+                    </div>
+    </div>
+<button class="btn btn-primary btn-block btn-lg m-b" type="submit">找回密码</button>
+<p class="text-center"><small><em>已有账号？<a href="{:U('login/index')}">点击登陆</a></em></small>
+</p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<footer class="session-footer">
+<nav class="footer-right">
+<ul class="nav">
+<li>
+<a href="../">返回首页</a>
+</li>
+<li>
+<a href="javascript:;" class="scroll-up">
+<i class="fa fa-angle-up"></i>
+</a>
+</li>
+</ul>
+</nav>
+<nav class="footer-left hidden-xs">
+<ul class="nav">
+<li>
+<a href="javascript:;"><span>关于</span>我们</a>
+</li>
+<li>
+<a href="javascript:;">隐私政策</a>
+</li>
+<li>
+<a href="javascript:;">使用帮助</a>
+</li>
+</ul>
+</nav>
+</footer>
+
+<script src="__PUBLIC__/Admin/app.min.js"></script><div class="bg-default"></div><div class="bg-primary"></div><div class="bg-success"></div><div class="bg-warning"></div><div class="bg-danger"></div><div class="bg-info"></div><div class="bg-white"></div><div class="bg-dark"></div>
+
+</body>
+<script src="__STATIC__/js/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $(".verify").click(function(){
+            var src = "{:U('forget/verify')}";
+            var random = Math.floor(Math.random()*(1000+1));
+            $(this).attr("src",src+"&random="+random);
+
+        });
+    })
+</script>
+</html>

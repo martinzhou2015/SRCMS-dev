@@ -1,0 +1,7 @@
+#
+# robots.txt for SRCMS V3.0 Alpha
+#
+
+User-agent: *
+Disallow: /admin
+Disallow: /public

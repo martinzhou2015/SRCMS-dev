@@ -1,0 +1,84 @@
+<include file="Public/header" title="历史报告 | 企业安全应急响应与缺陷管理中心" report="active"/>
+<div class="wrapper wrapper-content">
+            <div class="container">
+                <div class="row">          
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>全部报告</h5>
+                                <div class="pull-right">
+                                    <a href="{:U('post/add')}" class="btn btn-primary btn-xs">提交报告</a>
+                                </div>
+                            </div>
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-sm-9 m-b-xs">
+                                        <div data-toggle="buttons" class="btn-group">
+                                            <label onclick="location.href='{:U('post/index')}';" class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options">全部</label>
+                                            <label onclick="location.href='{:U('post/filter?id=1')}';" class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options">审核中</label>
+                                            <label onclick="location.href='{:U('post/filter?id=2')}';" class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options">已忽略</label>
+                                            <label onclick="location.href='{:U('post/filter?id=3')}';" class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> 已确认 </label>
+                                            <label onclick="location.href='{:U('post/filter?id=4')}';" class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> 已忽略 </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    <form action="{:U('post/index')}" method="post">
+                                        <div class="input-group"><input type="text" placeholder="Search / 搜索报告..." name="key" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+                                    </div>
+                                    </form>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover issue-tracker">
+                                        <thead>
+                                        <tr>   
+                                            <th>报告标题</th>
+                                            <th>报告状态</th>
+                                            <th>危害评级</th>
+                                            <th>漏洞类型</th>
+                                            <th>提交时间</th>
+                                            <th>操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <foreach name="model" item="v">
+                                        <tr>
+                                            <td><a href="{:U('post/view?rid=')}{$v.id}">{$v.title}</a></td>
+                                            <td> <if condition="$v.type eq 1"><span class="label label-info">审核中</span>
+                                                    <elseif condition="$v.type eq 2" /><span class="label label-default">已忽略</span>
+                                                    <elseif condition="$v.type eq 3" /><span class="label label-warning">已确认</span>
+                                                    <elseif condition="$v.type eq 4" /><span class="label label-success">已修复</span>
+                                                    </if>
+                                            </td>
+                                            <td>
+                                            <if condition="$v.rank eq 1"><span class="label label-default">无影响</span>
+                                            <elseif condition="$v.rank eq 2" /><span class="label label-primary">低危</span>
+                                            <elseif condition="$v.rank eq 3" /><span class="label label-warning">中危</span>
+                                            <elseif condition="$v.rank eq 4" /><span class="label label-success">高危</span>
+                                            </if>
+                                            </td>
+                                            <td>{$v.category_title}</td>
+                                            <td>{$v.time|date="Y/m/d H:i:s",###}</td>
+                                            <if condition="$v.type eq 1"><td><a href="{:U('post/edit?rid=')}{$v.id}">编辑</a></td>
+                                            <elseif condition="$v.type eq 2" /><td>编辑</td>
+                                            <elseif condition="$v.type eq 3" /><td>编辑</td>
+                                            <elseif condition="$v.type eq 4" /><td>编辑</td>
+                                            </if>
+                                        </tr>
+                                        </foreach>
+                                        </tbody>
+                                    </table>
+                                    <div class="col-sm-12" style="text-align:center">
+                                        {$page}
+                                    </div>	
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+<include file="Public/footer" />
