@@ -82,6 +82,7 @@
         </div>
 <div class="form-group">
             <label>危害评级：</label>
+            <if condition="$post.rank eq 1">
             <label class="radio-inline">
               <input type="radio" name="rank" id="rank" value="1" checked="checked">无影响
             </label>
@@ -94,9 +95,50 @@
             <label class="radio-inline">
               <input type="radio" name="rank" id="rank" value="4">高危
             </label>
+            <elseif condition="$post.rank eq 2" />
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="1">无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="2" checked="checked">低危
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="3">中等
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="4">高危
+            </label>
+            <elseif condition="$post.rank eq 3" />
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="1">无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="2">低危
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="3" checked="checked">中等
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="4">高危
+            </label>
+            <elseif condition="$post.rank eq 4" />
+             <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="1">无影响
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="2">低危
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="3">中等
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="rank" id="rank" value="4" checked="checked">高危
+            </label>
+            </if>
         </div>
 <div class="form-group">
             <label>处理结果：</label>
+            <if condition="$post.type eq 1">
             <label class="radio-inline">
               <input type="radio" name="type" id="type" value="1" checked="checked">审核中
             </label>
@@ -109,6 +151,46 @@
             <label class="radio-inline">
               <input type="radio" name="type" id="type" value="4">已修复
             </label>
+            <elseif condition="$post.rank eq 2" />
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="1">审核中
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="2" checked="checked">已忽略
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="3">已确认
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="4">已修复
+            </label>
+            <elseif condition="$post.rank eq 3" />
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="1">审核中
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="2">已忽略
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="3" checked="checked">已确认
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="4">已修复
+            </label>
+            <elseif condition="$post.rank eq 4" />
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="1">审核中
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="2">已忽略
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="3">已确认
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="type" id="type" value="4" checked="checked">已修复
+            </label>
+            </if>
         </div>
 <button type="submit" class="btn btn-info btn-sm btn-icon loading-demo mr5">
 		<i class="icon-cursor mr5"></i>
