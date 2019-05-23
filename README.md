@@ -45,6 +45,6 @@ SRCMS仅为建站软件，任何使用本建站程序搭建的网站其运营的
 如果您在使用本框架或是二次开发中发现任何SRCMS的问题，欢迎迎通过Github的issue功能将问题反馈，Issue功能能够很好的帮助我们定位和跟踪问题的修复情况。 
 
 
-## 联系方式
-![欢迎关注我的微信公众号](https://s1.ax1x.com/2018/12/26/F2p2yF.jpg)
+## 友情链接
+[腾讯xSRC](https://security.tencent.com/index.php/xsrc)
 
